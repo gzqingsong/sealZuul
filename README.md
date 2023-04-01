@@ -1,2 +1,1 @@
-# sealZuul
-springcloud zuul is as gateway.
+This is project for image handling.

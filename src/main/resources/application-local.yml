@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: seal-zuul
+    cloud:
+      consul:
+        host: localhost
+        port: 8500
+        discoveery:
+          serviceName: ${spring.application.name}
+zuul:
+  routes:
+    ribbon:
+      path: /ribbon/**
+      serviceId: seal-consumer
+      feign:
+        path: /feign/**
+        serviceId: seal-consumer
