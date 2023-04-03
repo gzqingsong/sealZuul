@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Log
-public class SealController {
+public class SealZuulController {
     @GetMapping("/seal")
     public String equals() {
-        log.info("this is test for server.");
+        log.info("this is test for zuul server.");
         return "This is a seal project1.";
     }
 }
