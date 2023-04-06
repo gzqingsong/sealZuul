@@ -10,6 +10,6 @@ public class SealZuulController {
     @GetMapping("/seal")
     public String equals() {
         log.info("this is test for zuul server.");
-        return "This is a seal project1.";
+        return "This is a seal project1. ";
     }
 }
