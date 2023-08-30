@@ -3,17 +3,20 @@ server:
 spring:
   application:
     name: seal-zuul
-    cloud:
-      consul:
-        host: localhost
-        port: 8500
-        discoveery:
-          serviceName: ${spring.application.name}
+  cloud:
+    consul:
+      discovery:
+        health-check-path: /health #检测实例健康
+        health-check- interval: 10s
+        #每隔1es检查
+        hostname: localhost
+        #配置实例地址
+        register: true # 自动注册
+        service-name: ${spring.application.name} #实例名称
+      host: localhost
+      port: 8500
 zuul:
   routes:
-    ribbon:
-      path: /ribbon/**
-      serviceId: seal-consumer
-    feign:
-      path: /feign/**
-      serviceId: seal-consumer
+    real:
+      path: /real/**
+      service-id: seal-consumer
